@@ -18,11 +18,17 @@ public class Author {
     private Long id;
     private String firstname;
     private String lastname;
+    @JsonIgnore
     private String username;
+    @JsonIgnore
     private String password;
+
+    @OneToMany
+    List<Post> posts;
 
     public Author() {
         super();
+        posts = new ArrayList<>();
     }
 
     public Author(String username, String firstname, String lastname, String password) {
@@ -32,6 +38,7 @@ public class Author {
         this.username = username;
         setPassword(password);
     }
+
 
     public void setPassword(String password) {
          this.password = PASSWORD_ENCODER.encode(password);
@@ -85,10 +92,10 @@ public class Author {
     }
 
     public List<Post> getPosts() {
-        return null;
+        return posts;
     }
 
     public void addPost(Post post) {
-        return;
+        return post;
     }
 }
