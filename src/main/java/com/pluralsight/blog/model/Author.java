@@ -96,6 +96,5 @@ public class Author {
     }
 
     public void addPost(Post post) {
-        return post;
     }
 }
